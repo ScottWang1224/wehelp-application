@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第八屆 WeHelp 訓練營申請</title>
+  <meta name="description" content="WeHelp 訓練營申請頁面">
+  <style>
+    :root {
+      --accent: #e86f55;
+      --accent-dark: #b64e3c;
+      --forest: #173f3a;
+      --forest-soft: #2f665d;
+      --ink: #263331;
+      --muted: #687a75;
+      --line: #e7ded1;
+      --paper: #fffdf8;
+      --bg: #f2eadf;
+      --placeholder: #fff9f1;
+      --shadow: 0 18px 42px rgba(57, 42, 26, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(232, 111, 85, 0.13), transparent 28rem),
+        radial-gradient(circle at 88% 4rem, rgba(47, 102, 93, 0.13), transparent 24rem),
+        linear-gradient(180deg, #fbf4ea 0, var(--bg) 18rem);
+      color: var(--ink);
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.8;
+    }
+
+    .site-header {
+      min-height: 132px;
+      display: grid;
+      place-items: center;
+      padding: 28px 20px 34px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 42%),
+        var(--forest);
+      border-bottom: 4px solid var(--accent);
+      color: #fff;
+      text-align: center;
+    }
+
+    .site-header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 2.35rem);
+      font-weight: 800;
+      letter-spacing: 0;
+      text-shadow: 0 2px 12px rgba(21, 79, 132, 0.18);
+    }
+
+    main {
+      width: min(100% - 32px, 1080px);
+      margin: 38px auto 64px;
+    }
+
+    .application {
+      background: var(--paper);
+      border: 1px solid rgba(84, 68, 47, 0.13);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: clamp(26px, 5vw, 48px) clamp(18px, 5vw, 52px);
+    }
+
+    .notice {
+      margin: 0 0 34px;
+      padding: 14px 16px;
+      border-left: 5px solid var(--accent);
+      background: #fff6ed;
+      color: #5f554a;
+      font-size: 0.98rem;
+    }
+
+    .question {
+      margin: 0;
+      padding: 0 0 42px;
+    }
+
+    .question + .question {
+      padding-top: 4px;
+      border-top: 1px solid var(--line);
+    }
+
+    .question:last-child {
+      padding-bottom: 0;
+    }
+
+    .question summary {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 0 0 18px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .question summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .question summary::after {
+      content: "";
+      flex: 0 0 auto;
+      width: 30px;
+      height: 30px;
+      margin-top: 1px;
+      border-radius: 999px;
+      background: #fff4eb;
+      color: var(--accent-dark);
+      border: 1px solid rgba(232, 111, 85, 0.24);
+      background-image:
+        linear-gradient(45deg, transparent 50%, currentColor 50%),
+        linear-gradient(135deg, currentColor 50%, transparent 50%);
+      background-position:
+        calc(50% - 4px) 52%,
+        calc(50% + 4px) 52%;
+      background-size: 8px 8px;
+      background-repeat: no-repeat;
+      transition: transform 150ms ease, background 150ms ease, color 150ms ease;
+    }
+
+    .question[open] summary::after {
+      background-color: var(--accent);
+      color: #fff;
+      transform: rotate(180deg);
+    }
+
+    .question h2 {
+      margin: 0;
+      padding-left: 14px;
+      border-left: 6px solid var(--accent);
+      color: var(--forest-soft);
+      font-size: clamp(1.08rem, 2.5vw, 1.38rem);
+      font-weight: 800;
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    .answer-space {
+      padding: 18px 20px;
+      border: 1px solid #eadccf;
+      border-radius: 6px;
+      background: var(--placeholder);
+      color: var(--ink);
+    }
+
+    .answer-space p {
+      margin: 0 0 1em;
+      font-size: 1.02rem;
+    }
+
+    .answer-space p:last-child {
+      margin-bottom: 0;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .link-card {
+      display: block;
+      min-height: 112px;
+      padding: 18px;
+      border: 1px solid rgba(232, 111, 85, 0.28);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(232, 111, 85, 0.13), transparent 58%),
+        #fffdf8;
+      color: var(--ink);
+      text-decoration: none;
+      transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .link-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 12px 28px rgba(57, 42, 26, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .link-card strong {
+      display: block;
+      color: var(--forest);
+      font-size: 1.02rem;
+      line-height: 1.45;
+    }
+
+    .link-card span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        min-height: 112px;
+        padding-block: 24px;
+      }
+
+      main {
+        width: min(100% - 20px, 1080px);
+        margin-top: 20px;
+      }
+
+      .application {
+        padding: 24px 16px 28px;
+      }
+
+      .notice {
+        margin-bottom: 28px;
+      }
+
+      .answer-space {
+        padding: 16px;
+      }
+
+      .link-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>第八屆 WeHelp 訓練營申請</h1>
+  </header>
+
+  <main>
+    <article class="application">
+      <details class="question">
+        <summary>
+          <h2>1. 個人簡介和申請動機。</h2>
+        </summary>
+        <div class="answer-space">
+          <p>我本身是非本科系畢業，自從 ChatGPT 等生成式 AI 爆發後，我開始對開發 AI 應用這個領域產生很大的興趣，也因此開始自學相關技術。再加上這兩年 Vibe Coding 的風潮崛起，我也嘗試使用 AI Agent 輔助開發。</p>
+          <p>在這個過程中，我確實感受到 AI 能大幅提升開發效率，但也慢慢發現一個問題：當 AI 生成程式碼的速度越來越快，而我 Review Code 的速度逐漸跟不上時，會讓我有一種自己還是「半吊子的開發者」的感覺。</p>
+          <p>所以我想報名 WeHelp，希望透過更完整、紮實且高強度的訓練，補齊自己的軟體工程基礎，讓自己不只是能靠 AI 工具做出東西，而是能真正理解程式碼、架構設計與工程品質。</p>
+        </div>
+      </details>
+
+      <details class="question">
+        <summary>
+          <h2>2. 曾經做過哪些軟體工程技術相關的學習？若有作品請分享給我們。</h2>
+        </summary>
+        <div class="answer-space">
+          <p>我初期是透過彭彭老師的 YouTube 課程學習前後端相關的基本知識，後來也會在 Udemy 上購買自己有興趣的技術課程來自學，例如 Python 後端開發、資料處理與 AI 應用相關內容。</p>
+          <p>近期我主要在研究 RAG、AI 智能客服相關的應用，並實作了一個健保資料問答系統 Side Project。</p>
+          <div class="link-grid" aria-label="作品相關連結">
+            <a class="link-card" href="https://github.com/ScottWang1224/nhi_rag_system" target="_blank" rel="noopener noreferrer">
+              <strong>健保資料問答系統 GitHub</strong>
+              <span>github.com/ScottWang1224/nhi_rag_system</span>
+            </a>
+            <a class="link-card" href="https://drive.google.com/file/d/1w809EH1jEHBWWu59QEi7PLQqN2TYbDJr/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <strong>作品相關簡報</strong>
+              <span>Google Drive 簡報連結</span>
+            </a>
+          </div>
+        </div>
+      </details>
+
+      <details class="question">
+        <summary>
+          <h2>3. 如果參與這個訓練，會怎麼安排學習時間？</h2>
+        </summary>
+        <div class="answer-space">
+          <p>如果有機會參與訓練，平日會保留主要時段進行課程任務的學習與實作，盡量讓每天都有穩定進度，以跟上訓練目標。</p>
+          <p>假日則會用來複習當週學習成果、整理筆記，並回頭檢查自己在實作中卡住或理解不夠完整的地方。</p>
+        </div>
+      </details>
+
+      <details class="question">
+        <summary>
+          <h2>4. 請簡述對於軟體工程的領域偏好和職涯想像。</h2>
+        </summary>
+        <div class="answer-space">
+          <p>我對後端開發、資料科學領域皆有興趣涉略。相較於單純研究模型本身，我更想學習如何把 LLM API、資料來源、資料庫與後端系統整合起來，打造真正能在實際情境中使用的 AI 應用。</p>
+          <p>長期來看，我希望自己能成為懂軟體工程基礎，也懂 AI 應用整合的工程師，在產品需求、資料處理與系統開發之間解決實際問題。</p>
+        </div>
+      </details>
+
+      <details class="question">
+        <summary>
+          <h2>5. 請描述一件產生明顯負面情緒的經歷，如何處理該情緒？</h2>
+        </summary>
+        <div class="answer-space">
+          <p>我本身比較少有情緒失控的情況，產生明顯負面情緒大多是在與人發生爭執的時候，當下可能會覺得煩躁或不舒服，但我通常不會在情緒最強烈的時候急著反應，通常都是抽空做一些自己有興趣的事就可以快速轉換心情。</p>
+        </div>
+      </details>
+
+      <details class="question">
+        <summary>
+          <h2>6. 關於這份申請網頁，分享一個開發時的技術心得。</h2>
+        </summary>
+        <div class="answer-space">
+          <p>我先把問題與答案整理成 Markdown 檔，讓 Codex 讀取後快速寫好一個模板，會比直接從零開始寫更有效率。</p>
+        </div>
+      </details>
+
+      <details class="question">
+        <summary>
+          <h2>7. 如何看待人工智慧的發展對軟體工程師的影響？</h2>
+        </summary>
+        <div class="answer-space">
+          <p>「用 AI 寫程式」想必是未來軟體工程師的必備技能，但開發效率快速提升的情況下，若沒有好的軟工基礎，勢必沒有能力維護 AI 產出的 Code。我認為未來軟體工程師會更看重系統架構設計、程式碼品質、需求理解與問題拆解能力。</p>
+          <p>在資訊爆炸與 AI 快速進步的時代，我覺得保持持續學習的心態也很重要，願意不斷更新自己的工具與觀念，才能跟上技術變化。</p>
+        </div>
+      </details>
+
+      <details class="question">
+        <summary>
+          <h2>8. 從上次提出申請至今，多做了哪些努力？（第一次申請不用回答）</h2>
+        </summary>
+        <div class="answer-space">
+          <p>我是第一次申請。</p>
+        </div>
+      </details>
+
+      <details class="question">
+        <summary>
+          <h2>9. 其他想要對我們說的事情？</h2>
+        </summary>
+        <div class="answer-space">
+          <p>我看過幾屆 WeHelp 畢業學員的成果 Demo，真的能感受到這個訓練的強度與紮實程度，是外面許多一般課程或補習班比較難達到的。也因為看到學員能在幾個月內完成具有完整度的作品，讓我更確定自己希望進入這樣的環境，用更高的標準要求自己成長。</p>
+        </div>
+      </details>
+    </article>
+  </main>
+</body>
+</html>
